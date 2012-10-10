@@ -7,7 +7,7 @@ class BotsController < ApplicationController
     if(params[:user_id])
       @bots = Bot.where(:user_id => params[:user_id])
     else
-      @bots = Bot.all
+      @bots = Bot.includes(:user).includes(:rating)
     end
 
     respond_to do |format|
