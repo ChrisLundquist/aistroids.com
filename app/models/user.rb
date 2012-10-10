@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  validates_presence_of :name
+  validates_uniqueness_of :email
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable

@@ -1,10 +1,12 @@
 AistroidsCom::Application.routes.draw do
   root :to => "home#index"
-  resources :bots
 
   devise_for :users
 
-  resources :users
+  resources :bots
+  resources :users do
+    resources :bots
+  end
 
 
   # The priority is based upon order of creation:

@@ -2,7 +2,11 @@ class BotsController < ApplicationController
   # GET /bots
   # GET /bots.json
   def index
-    @bots = Bot.all
+    if(params[:user_id])
+      @bots = Bot.where(:user_id => params[:user_id])
+    else
+      @bots = Bot.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb

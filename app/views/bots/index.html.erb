@@ -15,7 +15,7 @@
     <% @bots.each do |bot| %>
       <tr>
         <td><%= link_to bot.id, bot_path(bot) %></td>
-        <td><%= bot.user_id %></td>
+        <td><%= bot.user %></td>
         <td><%=l bot.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
