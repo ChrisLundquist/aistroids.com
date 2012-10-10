@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  validates_presence_of :name
   validates_uniqueness_of :email
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
@@ -14,6 +13,6 @@ class User < ActiveRecord::Base
   has_many :bots
 
   def to_s
-    name
+    name or "Me"
   end
 end

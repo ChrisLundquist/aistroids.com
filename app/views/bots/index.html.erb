@@ -8,6 +8,7 @@
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:user_id) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= model_class.human_attribute_name(:rating) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -17,6 +18,7 @@
         <td><%= link_to bot.id, bot_path(bot) %></td>
         <td><%= bot.user %></td>
         <td><%=l bot.created_at %></td>
+        <td><%= bot.rating %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_bot_path(bot), :class => 'btn btn-mini' %>
@@ -30,7 +32,8 @@
     <% end %>
   </tbody>
 </table>
-
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_bot_path,
-            :class => 'btn btn-primary' %>
+<% if current_user %>
+  <%= link_to t('.new', :default => t("helpers.links.new")),
+              new_bot_path,
+              :class => 'btn btn-primary' %>
+<% end %>

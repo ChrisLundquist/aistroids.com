@@ -11,13 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121008113718) do
+ActiveRecord::Schema.define(:version => 20121010144443) do
 
   create_table "bots", :force => true do |t|
     t.string   "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "ratings", :force => true do |t|
+    t.decimal  "skill"
+    t.decimal  "deviation"
+    t.decimal  "activity"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "bot_id"
+  end
+
+  add_index "ratings", ["bot_id"], :name => "index_ratings_on_bot_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"

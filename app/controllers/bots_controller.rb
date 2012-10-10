@@ -1,4 +1,6 @@
 class BotsController < ApplicationController
+  before_filter :authenticate_user!
+
   # GET /bots
   # GET /bots.json
   def index

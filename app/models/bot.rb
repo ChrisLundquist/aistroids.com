@@ -1,4 +1,5 @@
 class Bot < ActiveRecord::Base
-  attr_protected :user_id
+  attr_accessible :user_id
   belongs_to :user
+  has_one :rating
 end
