@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.8'
 gem 'execjs'
 gem 'devise'
+gem 'trueskill', :github => 'ChrisLundquist/trueskill', :branch => 'interface-revamp'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
