@@ -1,3 +1,4 @@
 class Bot < ActiveRecord::Base
-  attr_accessible :user_id
+  attr_protected :user_id
+  belongs_to :user
 end
