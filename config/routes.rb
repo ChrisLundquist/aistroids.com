@@ -1,11 +1,11 @@
 AistroidsCom::Application.routes.draw do
+  root :to => "home#index"
   resources :bots
 
   devise_for :users
 
   resources :users
 
-  root :to => "home#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
