@@ -33,7 +33,7 @@
   </tbody>
 </table>
 <% if current_user %>
-  <%= link_to t('.new', :default => t("helpers.links.new")),
-              new_bot_path,
-              :class => 'btn btn-primary' %>
+  <%= form_for model_class.new do |f| %>
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+  <% end %>
 <% end %>

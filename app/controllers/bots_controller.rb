@@ -47,10 +47,11 @@ class BotsController < ApplicationController
   # POST /bots.json
   def create
     @bot = Bot.new(params[:bot])
+    @bot.user = current_user
 
     respond_to do |format|
       if @bot.save
-        format.html { redirect_to @bot, notice: 'Bot was successfully created.' }
+        format.html { redirect_to user_bots_path(current_user.id), notice: 'Bot was successfully created.' }
         format.json { render json: @bot, status: :created, location: @bot }
       else
         format.html { render action: "new" }
@@ -82,7 +83,7 @@ class BotsController < ApplicationController
     @bot.destroy
 
     respond_to do |format|
-      format.html { redirect_to bots_url }
+      format.html { redirect_to user_bots_path(current_user.id)}
       format.json { head :no_content }
     end
   end
